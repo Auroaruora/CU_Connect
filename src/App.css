@@ -11,6 +11,7 @@
 }
 /* Add a Border to the App */
 .liked-screen {
+  position: relative;
   background-color: rgba(255, 255, 255, 1);
   border-radius: 16px;
   display: flex;
@@ -110,3 +111,88 @@
   left: 9px;
   top: 7px;
 }
+
+
+.back-button {
+  font-size: 16px;
+  color: #000; /* Black color */
+  margin-bottom: 20px; /* Space below the button */
+  cursor: pointer; /* Indicates it's clickable */
+}
+
+.image-container {
+  text-align: center;
+  margin-bottom: 20px; /* Space below the image */
+}
+
+.group-image {
+  width: 100%; /* Full width */
+  border-radius: 8px; /* Smooth rounded corners */
+  object-fit: cover; /* Ensures the image scales proportionally */
+  border: 2px solid #cce5ff; /* Adds a light blue border */
+}
+
+.info-container {
+  background-color: #fff; /* White background */
+  border-radius: 8px; /* Rounded corners */
+  padding: 15px; /* Inner padding */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-top: 20px; /* Space between the image and content */
+}
+.description {
+  font-size: 14px; /* Slightly smaller text */
+  color: #333; /* Dark gray for readability */
+  margin-bottom: 20px; /* Space below the description */
+}
+.events {
+  font-size: 14px; /* Uniform font size */
+  color: #333; /* Dark gray */
+  margin-bottom: 20px; /* Space below the events */
+}
+
+.events ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* No extra padding */
+  margin: 0; /* No margin */
+}
+
+.events li {
+  margin: 5px 0; /* Spacing between each event */
+}
+.social-links {
+  font-size: 14px; /* Text size matches the rest of the content */
+  color: #333; /* Dark gray */
+}
+
+.social-links strong {
+  font-weight: bold; /* Makes labels (e.g., Instagram) stand out */
+  color: #000; /* Black color for emphasis */
+}
+
+.bottom-navigation {
+  position: absolute; /* Position relative to the .liked-screen container */
+  bottom: 0; /* Stick to the bottom of the container */
+  width: 100%; /* Full width of the parent container */
+  height: 101.888px; /* Set the specified height */
+  background-color: #B9D9EB; /* Background color */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #ccc; /* Add a border at the top */
+  flex-shrink: 0; /* Prevent shrinking */
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+
+.nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-icon {
+  width: 30px;
+  height: 30px;
+}
+
+
