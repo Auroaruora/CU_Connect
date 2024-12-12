@@ -6,15 +6,19 @@ import homeIcon from './assets/Heart.png';
 import heartIcon from './assets/Home 2.png';
 import { useNavigate } from 'react-router-dom';
 
-function LikedScreen({likedClubs }) {
+function LikedScreen({likedClubs, setLikeClub }) {
 
   const navigate = useNavigate();
+
+  const onDeleteClub = (clubId) => {
+    setLikeClub((prevClubs) => prevClubs.filter((club) => club.id !== clubId)); // Use the setter to remove the club
+  };
 
   const handleClubClick = (clubId) => {
     navigate(`/Likedclubs/${clubId}`); 
   };
   const handleHomeClick = () => {
-    navigate(`/`); 
+    navigate(`/home`); 
   };
   return (
       <div className="liked-screen">
@@ -22,14 +26,26 @@ function LikedScreen({likedClubs }) {
           <div className="liked-clubs">Liked Clubs</div>
           <div className="groups-container">
             {likedClubs.map((club) => (
-              <div className="group" key={club.id} onClick={() => handleClubClick(club.id)}>
+              <div className="group" key={club.id}>
                 <div className="rectangle"></div>
-                <img className="trash-icon" src={trashIcon} alt="Trash Can Icon" />
-                <div className="club-name" style={club.name.length > 25 ? { fontSize: '14px' } : {}}>
+                <img className="screenshot" src={require(`${club.image}`)} alt={club.name} />
+                <div
+                  className="club-name"
+                  style={club.name.length > 25 ? { fontSize: '14px' } : {}}
+                  onClick={() => handleClubClick(club.id)}
+                >
                   {club.name}
                 </div>
-                <img className="screenshot" src={require(`${club.image}`)} alt={club.name} />
+                <img
+                  className="trash-icon"
+                  src={trashIcon}
+                  alt="Trash Can Icon"
+                  onClick={() => onDeleteClub(club.id)}
+                />
+                
+                
               </div>
+
             ))}
           </div>
         </div>

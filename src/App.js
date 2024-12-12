@@ -37,7 +37,7 @@ function App() {
         <Routes>
           <Route path="/" element={<WelcomePage />} />
           <Route path="/home" element={<HomeScreen clubsData={clubsData} />} />
-          <Route path="/likedclubs" element={<LikedScreen likedClubs={likeClubs} />} />
+          <Route path="/likedclubs" element={<LikedScreen likedClubs={likeClubs} setLikeClub={setLikeClub} />} />
           <Route path="/likedclubs/:clubId" element={<ClubDetails club={likeClubs} />} />
         </Routes>
       </div>
