@@ -195,4 +195,27 @@
   height: 30px;
 }
 
+/* Improved hover effects for the group */
+.group {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out; /* Added background-color transition */
+}
 
+.group:hover {
+  transform: scale(1.03); /* Slightly less scaling */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Softer shadow */
+  cursor: pointer;
+  background-color: rgba(0, 123, 255, 0.1); /* Very light blue background */
+}
+
+.group:hover .rectangle {
+  background-color: rgba(0, 123, 255, 0.2); /* Lighter blue for rectangle */
+}
+
+.group:hover .club-name {
+  color: #0056b3; /* Slightly darker, but still within the blue family */
+}
+
+
+.trash-icon:hover {
+  fill: red; /* Change the fill color on hover */
+}

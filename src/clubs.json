@@ -1,0 +1,22 @@
+[
+    {
+      "id": 1,
+      "name": "Black Pre-Law Society",
+      "image": "./assets/4.png"
+    },
+    {
+      "id": 2,
+      "name": "Onyx Dance Troupe",
+      "image": "./assets/1.png"
+    },
+    {
+      "id": 3,
+      "name": "Society of Women Engineers",
+      "image": "./assets/2.png"
+    },
+    {
+      "id": 4,
+      "name": "Columbia Spectator",
+      "image": "./assets/3.png"
+    }
+  ]
