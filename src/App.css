@@ -27,6 +27,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
 }
 
+
 /* Flexbox container for content inside .liked-screen */
 .content-container {
   display: flex;

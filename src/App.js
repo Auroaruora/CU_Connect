@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import './App.css'; // Keep your global styles
+import './App.css';
 import LikedScreen from './LikedScreen';
 import HomeScreen from './HomeScreen';
 import ClubDetails from './ClubDetails';
-import { useParams, Link } from 'react-router-dom';
+import WelcomePage from './WelcomePage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -32,18 +32,16 @@ function App() {
   ]);
 
   return (
-    <Router> {/* Wrap your app with Router */}
-    <div className="app-container">
-      <Routes> {/* Use Routes to define routes */}
-        <Route path="/" element={<HomeScreen clubsData={clubsData} />} /> {/* LikedScreen route */}
-        <Route path="/Likedclubs" element={<LikedScreen likedClubs={likeClubs} />} /> {/* LikedScreen route */}
-        <Route path="/Likedclubs/:clubId" element={<ClubDetails club={likeClubs} />} /> {/* ClubDetails route */}
-      </Routes>
-    </div>
-  </Router>
-    // <div className="app-container"> 
-    //   <LikedScreen />
-    // </div>
+    <Router>
+      <div className="app-container">
+        <Routes>
+          <Route path="/" element={<WelcomePage />} />
+          <Route path="/home" element={<HomeScreen clubsData={clubsData} />} />
+          <Route path="/likedclubs" element={<LikedScreen likedClubs={likeClubs} />} />
+          <Route path="/likedclubs/:clubId" element={<ClubDetails club={likeClubs} />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
