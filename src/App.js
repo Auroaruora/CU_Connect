@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import './App.css'; // Keep your global styles
 import LikedScreen from './LikedScreen';
+import HomeScreen from './HomeScreen';
 import ClubDetails from './ClubDetails';
 import { useParams, Link } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 function App() {
   const clubsData = require('./clubs.json');
   const [likeClubs, setLikeClub] = useState([
@@ -33,8 +35,9 @@ function App() {
     <Router> {/* Wrap your app with Router */}
     <div className="app-container">
       <Routes> {/* Use Routes to define routes */}
-        <Route path="/" element={<LikedScreen likedClubs={likeClubs} />} /> {/* LikedScreen route */}
-        <Route path="/club/:clubId" element={<ClubDetails club={likeClubs} />} /> {/* ClubDetails route */}
+        <Route path="/" element={<HomeScreen clubsData={clubsData} />} /> {/* LikedScreen route */}
+        <Route path="/Likedclubs" element={<LikedScreen likedClubs={likeClubs} />} /> {/* LikedScreen route */}
+        <Route path="/Likedclubs/:clubId" element={<ClubDetails club={likeClubs} />} /> {/* ClubDetails route */}
       </Routes>
     </div>
   </Router>

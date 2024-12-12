@@ -11,7 +11,10 @@ function LikedScreen({likedClubs }) {
   const navigate = useNavigate();
 
   const handleClubClick = (clubId) => {
-    navigate(`/club/${clubId}`); 
+    navigate(`/Likedclubs/${clubId}`); 
+  };
+  const handleHomeClick = () => {
+    navigate(`/`); 
   };
   return (
       <div className="liked-screen">
@@ -33,7 +36,7 @@ function LikedScreen({likedClubs }) {
 
         <div className="bottom-navigation">
           <div className="nav-item">
-            <img src={heartIcon} alt="Liked Icon" className="nav-icon" />
+            <img src={heartIcon} alt="Liked Icon" className="nav-icon" onClick={() => handleHomeClick()}/>
           </div>
           <div className="nav-item">
             <img src={homeIcon} alt="Home Icon" className="nav-icon" />
