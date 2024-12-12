@@ -20,34 +20,36 @@ function LikedScreen({likedClubs, setLikeClub }) {
   const handleHomeClick = () => {
     navigate(`/home`); 
   };
+
   return (
       <div className="liked-screen">
         <div className="content-container">
           <div className="liked-clubs">Liked Clubs</div>
-          <div className="groups-container">
-            {likedClubs.map((club) => (
-              <div className="group" key={club.id}>
-                <div className="rectangle"></div>
-                <img className="screenshot" src={require(`${club.image}`)} alt={club.name} />
-                <div
-                  className="club-name"
-                  style={club.name.length > 25 ? { fontSize: '14px' } : {}}
-                  onClick={() => handleClubClick(club.id)}
-                >
-                  {club.name}
+          {likedClubs.length === 0 ? (
+            <div className="no-clubs-message">Go explore new clubs!</div>
+          ) : (
+            <div className="groups-container">
+              {likedClubs.map((club) => (
+                <div className="group" key={club.id}>
+                  <div className="rectangle"></div>
+                  <img className="screenshot" src={require(`${club.image}`)} alt={club.name} />
+                  <div
+                    className="club-name"
+                    style={club.name.length > 25 ? { fontSize: '14px' } : {}}
+                    onClick={() => handleClubClick(club.id)}
+                  >
+                    {club.name}
+                  </div>
+                  <img
+                    className="trash-icon"
+                    src={trashIcon}
+                    alt="Trash Can Icon"
+                    onClick={() => onDeleteClub(club.id)}
+                  />
                 </div>
-                <img
-                  className="trash-icon"
-                  src={trashIcon}
-                  alt="Trash Can Icon"
-                  onClick={() => onDeleteClub(club.id)}
-                />
-                
-                
-              </div>
-
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="bottom-navigation">
