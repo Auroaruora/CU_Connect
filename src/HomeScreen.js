@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import ClubCard from './ClubCard';
-import heartIcon from './assets/Heart.png';
-import homeIcon from './assets/Home 2.png';
 import { useNavigate } from 'react-router-dom';
 import NavigationBar from './NavigationBar';
-
+import { StackCard } from "react-stack-cards";
 
 function HomeScreen({ clubsData, likedClubs, setLikedClubs, viewedClubs, setViewedClubs }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [backendLikedClubs, setBackendLikedClubs] = useState([]);
+  const [direction, setDirection] = useState(null);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     fetch("http://127.0.0.1:5000/liked-clubs")
@@ -33,8 +33,11 @@ function HomeScreen({ clubsData, likedClubs, setLikedClubs, viewedClubs, setView
   );
 
   const handleLike = () => {
-    const currentClub = filteredClubs[currentIndex];
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setDirection('right');
 
+    const currentClub = filteredClubs[currentIndex];
     console.log("Current club being liked:", currentClub);
 
     fetch("http://127.0.0.1:5000/liked-clubs", {
@@ -62,13 +65,27 @@ function HomeScreen({ clubsData, likedClubs, setLikedClubs, viewedClubs, setView
       setLikedClubs([...likedClubs, currentClub]);
     }
     setViewedClubs([...viewedClubs, currentClub]);
-    moveToNextCard();
+    
+    setTimeout(() => {
+      moveToNextCard();
+      setDirection(null);
+      setIsAnimating(false);
+    }, 300);
   };
 
   const handleDislike = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setDirection('left');
+
     const currentClub = filteredClubs[currentIndex];
     setViewedClubs([...viewedClubs, currentClub]);
-    moveToNextCard();
+    
+    setTimeout(() => {
+      moveToNextCard();
+      setDirection(null);
+      setIsAnimating(false);
+    }, 300);
   };
 
   const moveToNextCard = () => {
@@ -81,32 +98,55 @@ function HomeScreen({ clubsData, likedClubs, setLikedClubs, viewedClubs, setView
 
   const navigate = useNavigate();
 
+  const getCardStyle = () => {
+    if (!direction) return {};
+    
+    const transform = direction === 'right' 
+      ? 'translateX(120%) rotate(20deg)' 
+      : 'translateX(-120%) rotate(-20deg)';
+    
+    return {
+      transform,
+      transition: 'transform 0.3s ease-out'
+    };
+  };
+
   return (
-    <div className="min-h-screen bg-blue-50">
+    <div className="min-h-screen bg-blue-50 flex flex-col">
+      {/* Header */}
       <div className="p-6">
         <h1 className="text-3xl font-bold text-navy-900 text-center">Campus Connect</h1>
       </div>
 
-      <div className="px-4 pb-20">
+      {/* Main Content Area */}
+      <div className="flex-1 flex flex-col items-center px-4" style={{ marginBottom: '60px' }}>
         {currentIndex < filteredClubs.length ? (
-          <ClubCard
-            name={filteredClubs[currentIndex].name}
-            description={filteredClubs[currentIndex].description}
-            events={filteredClubs[currentIndex].events}
-            image={filteredClubs[currentIndex].image}
-            instagram={filteredClubs[currentIndex].instagram}
-            website={filteredClubs[currentIndex].website}
-            onLike={handleLike}
-            onDislike={handleDislike}
-          />
+          <div style={{
+            width: '100%',
+            maxWidth: '400px',
+            position: 'relative',
+            ...getCardStyle()
+          }}>
+            <ClubCard
+              name={filteredClubs[currentIndex].name}
+              description={filteredClubs[currentIndex].description}
+              events={filteredClubs[currentIndex].events}
+              image={filteredClubs[currentIndex].image}
+              instagram={filteredClubs[currentIndex].instagram}
+              website={filteredClubs[currentIndex].website}
+              onLike={handleLike}
+              onDislike={handleDislike}
+            />
+          </div>
         ) : (
-          <div className="bg-white rounded-3xl shadow-lg p-6 text-center">
+          <div className="bg-white rounded-3xl shadow-lg p-6 text-center w-full max-w-400px">
             <p className="text-gray-600">No more clubs to display!</p>
           </div>
         )}
       </div>
 
-      <NavigationBar />
+      {/* Navigation Bar */}
+      <NavigationBar className="mt-auto" />
     </div>
   );
 }
