@@ -8,14 +8,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [clubsData, setClubsData] = useState([]);
-  const [likeClubs, setLikeClub] = useState(() => {
-    // Load liked clubs from localStorage
-    const savedClubs = localStorage.getItem("likedClubs");
-    return savedClubs ? JSON.parse(savedClubs) : [];
-  });
+  const [likeClubs, setLikeClub] = useState([]);
+  const [viewedClubs, setViewedClubs] = useState([]);
 
   useEffect(() => {
-    // Fetch clubs data
     fetch('/clubs.json')
       .then((response) => {
         if (!response.ok) {
@@ -32,7 +28,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // Save liked clubs to localStorage whenever it changes
     localStorage.setItem("likedClubs", JSON.stringify(likeClubs));
   }, [likeClubs]);
 
@@ -47,7 +42,9 @@ function App() {
               <HomeScreen
                 clubsData={clubsData}
                 likedClubs={likeClubs}
-                setLikedClubs={setLikeClub} // Pass setter function
+                setLikedClubs={setLikeClub}
+                viewedClubs={viewedClubs}
+                setViewedClubs={setViewedClubs}
               />
             }
           />
