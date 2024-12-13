@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import trashIcon from "./assets/icons8-trash-can-100.png";
-import homeIcon from "./assets/Home 2.png";
-import heartIcon from "./assets/Heart.png";
 import { useNavigate } from "react-router-dom";
 import NavigationBar from './NavigationBar';
 

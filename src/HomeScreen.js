@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
-import ClubCard from './ClubCard';
-import { useNavigate } from 'react-router-dom';
-import NavigationBar from './NavigationBar';
+import ClubCard from "./ClubCard";
+import { useNavigate } from "react-router-dom";
+import NavigationBar from "./NavigationBar";
 
-function HomeScreen({ clubsData, likedClubs, setLikedClubs, viewedClubs, setViewedClubs }) {
+function HomeScreen({
+  clubsData,
+  likedClubs,
+  setLikedClubs,
+  viewedClubs,
+  setViewedClubs,
+}) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [backendLikedClubs, setBackendLikedClubs] = useState([]);
   const [direction, setDirection] = useState(null);
@@ -34,7 +40,7 @@ function HomeScreen({ clubsData, likedClubs, setLikedClubs, viewedClubs, setView
   const handleLike = () => {
     if (isAnimating) return;
     setIsAnimating(true);
-    setDirection('right');
+    setDirection("right");
 
     const currentClub = filteredClubs[currentIndex];
     console.log("Current club being liked:", currentClub);
@@ -64,7 +70,7 @@ function HomeScreen({ clubsData, likedClubs, setLikedClubs, viewedClubs, setView
       setLikedClubs([...likedClubs, currentClub]);
     }
     setViewedClubs([...viewedClubs, currentClub]);
-    
+
     setTimeout(() => {
       moveToNextCard();
       setDirection(null);
@@ -75,11 +81,11 @@ function HomeScreen({ clubsData, likedClubs, setLikedClubs, viewedClubs, setView
   const handleDislike = () => {
     if (isAnimating) return;
     setIsAnimating(true);
-    setDirection('left');
+    setDirection("left");
 
     const currentClub = filteredClubs[currentIndex];
     setViewedClubs([...viewedClubs, currentClub]);
-    
+
     setTimeout(() => {
       moveToNextCard();
       setDirection(null);
@@ -99,33 +105,50 @@ function HomeScreen({ clubsData, likedClubs, setLikedClubs, viewedClubs, setView
 
   const getCardStyle = () => {
     if (!direction) return {};
-    
-    const transform = direction === 'right' 
-      ? 'translateX(120%) rotate(20deg)' 
-      : 'translateX(-120%) rotate(-20deg)';
-    
+
+    const transform =
+      direction === "right"
+        ? "translateX(120%) rotate(20deg)"
+        : "translateX(-120%) rotate(-20deg)";
+
     return {
       transform,
-      transition: 'transform 0.3s ease-out'
+      transition: "transform 0.3s ease-out",
     };
   };
 
   return (
-    <div className="min-h-screen bg-blue-50 flex flex-col">
+    <div
+      className="min-h-screen flex flex-col font-['Outfit']"
+      style={{
+        background:
+          "linear-gradient(135deg, #75B2DD 0%, #9CC7E5 50%, #EFF6FB 100%)",
+      }}
+    >
+      {/* Increased top spacer */}
+      <div className="flex-[1.2]" />
+
       {/* Header */}
-      <div className="p-6">
-        <h1 className="text-3xl font-bold text-navy-900 text-center">Campus Connect</h1>
+      <div className="px-8 mb-8">
+        <h1 className="text-[#002B7F] text-4xl font-bold text-center tracking-tight">
+          Campus Connect
+        </h1>
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col items-center px-4" style={{ marginBottom: '60px' }}>
+      <div
+        className="flex-1 flex flex-col items-center px-4"
+        style={{ marginBottom: "60px" }}
+      >
         {currentIndex < filteredClubs.length ? (
-          <div style={{
-            width: '100%',
-            maxWidth: '400px',
-            position: 'relative',
-            ...getCardStyle()
-          }}>
+          <div
+            style={{
+              width: "100%",
+              maxWidth: "400px",
+              position: "relative",
+              ...getCardStyle(),
+            }}
+          >
             <ClubCard
               name={filteredClubs[currentIndex].name}
               description={filteredClubs[currentIndex].description}
@@ -138,11 +161,21 @@ function HomeScreen({ clubsData, likedClubs, setLikedClubs, viewedClubs, setView
             />
           </div>
         ) : (
-          <div className="bg-white rounded-3xl shadow-lg p-6 text-center w-full max-w-400px">
-            <p className="text-gray-600">No more clubs to display!</p>
+          <div className="w-full max-w-[400px]">
+            <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-lg py-6 px-8">
+              <p className="text-[#4A5568] text-xl text-center font-medium">
+                No more clubs to display!
+              </p>
+              <p className="text-gray-500 text-center mt-2">
+                Check out your liked clubs to see your matches
+              </p>
+            </div>
           </div>
         )}
       </div>
+
+      {/* Bottom spacer */}
+      <div className="flex-1" />
 
       {/* Navigation Bar */}
       <NavigationBar className="mt-auto" />
