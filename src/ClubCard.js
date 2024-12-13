@@ -3,7 +3,10 @@ import './styles.css'; // Your shared styles
 import redHeartIcon from './assets/red Heart.png';
 import xIcon from './assets/X 01.png';
 
-function ClubCard({ name, description, events, image, instagram, website, onLike, onDislike }) {
+
+function ClubCard({ name, description, events, image, onLike, onDislike }) {
+
+
   return (
     <div className="club-card">
       {/* Club Header */}
@@ -30,7 +33,6 @@ function ClubCard({ name, description, events, image, instagram, website, onLike
           <p>
             <strong>Upcoming Events:</strong> {events !== "N/A" ? events : "No events scheduled"}
           </p>
-          
         </div>
       </div>
 
