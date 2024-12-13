@@ -1,0 +1,183 @@
+[
+    {
+        "id": 1,
+        "name": "Columbia Financial Investment Group (CFIG)",
+        "image": "./assets/CFG.png",
+        "description": "The Columbia Financial Investment Group is Columbia University’s largest undergraduate finance club in New York City. It aims to encourage an interest in finance and inform all members of the financial markets.",
+        "events": "Weekly meeting 8:00 to 9:00 PM in 703 Hamilton Hall.",
+        "instagram": "https://www.facebook.com/@ColumbiaFinancialInvestmentGroup/",
+        "website": "https://www.google.com/url?q=http://www.cfigcolumbia.com/&sa=D&source=editors&ust=1733978223428095&usg=AOvVaw0WIUKQHBaP7Ce-QCP_j8Kh"
+    },
+    {
+        "id": 2,
+        "name": "Application Development Initiative",
+        "image": "./assets/ADI.png",
+        "description": "Application Development Initiative is a student group at Columbia University that aims to foster a community of students interested in technology.",
+        "events": "10/30 Resume Review & Mock Interview",
+        "instagram": "https://www.facebook.com/adicu",
+        "website": "https://www.adicu.com"
+    },
+    {
+        "id": 3,
+        "name": "Barnard-Columbia Socialists",
+        "image": "./assets/NoLogo.png",
+        "description": "Barnard-Columbia Socialists is a group of students, workers and other members of the University community who agree on the need to organize against all forms of exploitation and oppression. The group aims to fight for and build a socialist alternative that puts people before profits.",
+        "events": "N/A",
+        "instagram": "N/A",
+        "website": "N/A"
+    },
+    {
+        "id": 4,
+        "name": "Columbia Consulting Group",
+        "image": "./assets/CCG.png",
+        "description": "Oldest and Largest Consulting Group at Columbia University. Working with Real-World Businesses.",
+        "events": "N/A",
+        "instagram": "https://www.instagram.com/columbiaconsulting/",
+        "website": "N/A"
+    },
+    {
+        "id": 5,
+        "name": "Columbia China Dance",
+        "image": "./assets/NoLogo.png",
+        "description": "Columbia University’s only traditional Chinese dance group!",
+        "events": "N/A",
+        "instagram": "https://www.instagram.com/columbiachinadance/?hl=en",
+        "website": "N/A"
+    },
+    {
+        "id": 6,
+        "name": "Onyx Dance Troupe",
+        "image": "./assets/ONYX.png",
+        "description": "A collective of dancers joined by our love for empowering femme people through hip hop dance.",
+        "events": "Halloween Workshop, 10/26",
+        "instagram": "https://www.instagram.com/onyx_cu/?hl=en",
+        "website": "N/A"
+    },
+    {
+        "id": 7,
+        "name": "Nonsequitur",
+        "image": "./assets/Nonseq.png",
+        "description": "Nonsequitur is Columbia’s premier co-ed a cappella group and has performed most recently at Lincoln Center and Battery Park. Boasting musical alums like Tony and Grammy-Award winning Ben Platt, they will be appearing on a new HBO show, and their most recent album, “But We Do,” is available on all streaming platforms.",
+        "events": "Midsemester Concert Nov 9",
+        "instagram": "https://www.instagram.com/nonsequigram/",
+        "website": "https://www.columbianonseq.com"
+    },
+    {
+        "id": 8,
+        "name": "WKCR",
+        "image": "./assets/WKCR.png",
+        "description": "WKCR-FM, Columbia University’s non-commercial student-run radio station, is dedicated to presenting a spectrum of alternative programming: traditional and art music, spoken arts and original journalism.",
+        "events": "N/A",
+        "instagram": "https://www.instagram.com/wkcr/",
+        "website": "https://www.cc-seas.columbia.edu/wkcr/"
+    },
+    {
+        "id": 9,
+        "name": "Bwog",
+        "image": "./assets/Bwog.png",
+        "description": "Bwog is an independent, student-run campus news site. We publish content that is relevant to undergraduate students at the University, including breaking news; campus arts, science, and culture events; investigative features; and conspiracy theories – often packaged with a humorous voice.",
+        "events": "Applications for Fall closed, monthly newsletter to stay informed",
+        "instagram": "https://www.instagram.com/bwog/?hl=en",
+        "website": "https://bwog.com"
+    },
+    {
+        "id": 10,
+        "name": "Big SIBS",
+        "image": "./assets/NoLogo.png",
+        "description": "Big SIBS is one of Community Impact’s founding programs. It provides a unique mentoring opportunity for local youth, called Littles, who would benefit from a positive adult role model.",
+        "events": "N/A",
+        "instagram": "N/A",
+        "website": "N/A"
+    },
+    {
+        "id": 11,
+        "name": "Columbia Effective Altruism",
+        "image": "./assets/CEA.png",
+        "description": "This group applies the principles of effective altruism, seeking to use evidence and reason to determine the most effective ways to benefit others.",
+        "events": "N/A",
+        "instagram": "https://www.facebook.com/groups/ColumbiaEA/",
+        "website": "https://forum.effectivealtruism.org/groups/tCYdFHDX9rC4i5ZQJ"
+    },
+    {
+        "id": 12,
+        "name": "The Food Pantry at Columbia",
+        "image": "./assets/NoLogo.png",
+        "description": "The Food Pantry at Columbia provides non-perishable food for students with any level of food insecurity.",
+        "events": "N/A",
+        "instagram": "https://www.facebook.com/thefoodpantryatcolumbia",
+        "website": "https://foodpantry.cssi.columbia.edu"
+    },
+    {
+        "id": 13,
+        "name": "Kraft Global Fellows Program",
+        "image": "./assets/NoLogo.png",
+        "description": "The Office of the University Chaplain’s Kraft Global Fellows Program is an initiative of the Kraft Family Fund for Intercultural and Interfaith Awareness. At designated academic breaks, the Kraft Global Fellows Program will support up to five students to travel to one of the Columbia Global Centers (CGC) as a team to conduct research for a particular set of questions or inquiries.",
+        "events": "Restricted access to club info for non member. Application closed for this semester",
+        "instagram": "N/A",
+        "website": "https://ouc.columbia.edu/content/kraft-global-fellows-program"
+    },
+    {
+        "id": 14,
+        "name": "Spectra",
+        "image": "./assets/NoLogo.png",
+        "description": "Spectra, formerly the Columbia Society for Women in Physics, is a group comprised of undergraduate students, graduate students, and postdoctorates from Columbia University with the purpose of connecting and promoting women and other underrepresented groups in the field of physics.",
+        "events": "N/A",
+        "instagram": "https://www.facebook.com/cuspectra/",
+        "website": "https://spectra.physics.columbia.edu"
+    },
+    {
+        "id": 15,
+        "name": "CU Generation",
+        "image": "./assets/NoLogo.png",
+        "description": "Columbia University dance team.",
+        "events": "N/A",
+        "instagram": "https://www.instagram.com/cugeneration/?hl=en",
+        "website": "https://www.google.com/url?q=https://cugeneration.wixsite.com/cu-generation&sa=D&source=editors&ust=1733979604023536&usg=AOvVaw3xI2mNmkk1oZQE0kgVK_gz"
+    },
+    {
+        "id": 16,
+        "name": "Clefhangers",
+        "image": "./assets/CLEF.png",
+        "description": "The Columbia Clefhangers (aka 'Clefs') are students at the University who form a contemporary coed a cappella group in New York City. Since 1988, the Clefs have been singing from Rockefeller Center to Paris, entertaining audiences with their original arrangements of pop, R&B and soulful music of every genre.",
+        "events": "N/A",
+        "instagram": "https://www.instagram.com/columbiaclefhangers/",
+        "website": "https://www.columbiaclefhangers.com"
+    },
+    {
+        "id": 17,
+        "name": "Best Buddies",
+        "image": "./assets/NoLogo.png",
+        "description": "Best Buddies promotes the social inclusion and acceptance of individuals with intellectual or developmental disabilities (IDD).",
+        "events": "N/A",
+        "instagram": "N/A",
+        "website": "N/A"
+    },
+    {
+        "id": 18,
+        "name": "Columbia Habitat for Humanity",
+        "image": "./assets/NoLogo.png",
+        "description": "Works on building affordable housing and supporting Habitat for Humanity’s mission.",
+        "events": "N/A",
+        "instagram": "N/A",
+        "website": "N/A"
+      },
+      {
+        "id": 19,
+        "name": "Columbia Women's Business Society",
+        "image": "./assets/CWBS.png",
+        "description": "Largest pre-professional society at Columbia, empowering women in business.",
+        "events": "International student panel, Tuesday, October 29th from 8-9PM.",
+        "instagram": "N/A",
+        "website": "N/A"
+      },
+      {
+        "id": 20,
+        "name": "Varsity Show",
+        "image": "./assets/VS.png",
+        "description": "Columbia University’s oldest performing arts tradition.",
+        "events": "Auditions 10/23, 10/27",
+        "instagram": "https://www.instagram.com/thevarsityshow/?hl=en",
+        "website": "https://www.thevarsityshow.com"
+  
+      }
+    ]

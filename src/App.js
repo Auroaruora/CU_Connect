@@ -52,7 +52,10 @@ function App() {
             path="/likedclubs"
             element={<LikedScreen likedClubs={likeClubs} setLikeClub={setLikeClub} />}
           />
-          <Route path="/likedclubs/:clubId" element={<ClubDetails club={likeClubs} />} />
+          <Route
+            path="/likedclubs/:clubId"
+            element={<ClubDetails likedClubs={likeClubs} />}
+          />
         </Routes>
       </div>
     </Router>
