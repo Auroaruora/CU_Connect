@@ -7,6 +7,10 @@ function NavigationBar() {
   
   const isHomePage = location.pathname === '/home';
   const isLikedPage = location.pathname === '/likedclubs';
+  
+  // Columbia blue colors
+  const columbiaNavy = "#133C8B";
+  const columbiaLightBlue = "#E8F3FF";
 
   return (
     <div style={{
@@ -15,13 +19,13 @@ function NavigationBar() {
       left: 0,
       right: 0,
       height: '80px',
-      backgroundColor: 'white',
-      borderTop: '1px solid rgba(0, 0, 0, 0.1)',
+      backgroundColor: columbiaLightBlue,
+      borderTop: '1px solid rgba(19, 60, 139, 0.1)',
       display: 'flex',
       justifyContent: 'space-around',
       alignItems: 'center',
       padding: '0 20px',
-      zIndex: 10 // Ensure nav bar stays on top
+      zIndex: 10
     }}>
       {/* Home Icon */}
       <button
@@ -41,7 +45,7 @@ function NavigationBar() {
           height="32"
           viewBox="0 0 24 24"
           fill="none"
-          stroke={isHomePage ? "#000000" : "#CCCCCC"}
+          stroke={isHomePage ? columbiaNavy : `${columbiaNavy}80`}
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -68,8 +72,8 @@ function NavigationBar() {
           width="32"
           height="32"
           viewBox="0 0 24 24"
-          fill={isLikedPage ? "#000000" : "none"}
-          stroke={isLikedPage ? "#000000" : "#CCCCCC"}
+          fill={isLikedPage ? columbiaNavy : "none"}
+          stroke={isLikedPage ? columbiaNavy : `${columbiaNavy}80`}
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"

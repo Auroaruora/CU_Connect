@@ -118,26 +118,43 @@ function HomeScreen({
   };
 
   return (
-    <div
-      className="min-h-screen flex flex-col font-['Outfit']"
-      style={{
-        background:
-          "linear-gradient(135deg, #75B2DD 0%, #9CC7E5 50%, #EFF6FB 100%)",
-      }}
-    >
-      {/* Increased top spacer */}
-      <div className="flex-[1.2]" />
+    <div className="min-h-screen flex flex-col font-['Outfit'] relative overflow-hidden">
+      {/* Vibrant Background */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundColor: "#75AADB",
+          backgroundImage: `
+            radial-gradient(circle at 0% 0%, #9CC7E5 0%, transparent 45%),
+            radial-gradient(circle at 100% 100%, #9CC7E5 0%, transparent 45%),
+            linear-gradient(135deg, rgba(19, 60, 139, 0.1) 0%, rgba(255, 255, 255, 0.15) 100%)
+          `,
+        }}
+      >
+        {/* Light Accents */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.2) 0%, transparent 35%),
+              radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.2) 0%, transparent 35%)
+            `,
+            opacity: 0.8,
+          }}
+        />
+      </div>
 
-      {/* Header */}
-      <div className="px-8 mb-8">
+      {/* Content */}
+      <div className="flex-[1.2] z-10" />
+
+      <div className="px-8 mb-8 z-10">
         <h1 className="text-[#002B7F] text-4xl font-bold text-center tracking-tight">
           Campus Connect
         </h1>
       </div>
 
-      {/* Main Content Area */}
       <div
-        className="flex-1 flex flex-col items-center px-4"
+        className="flex-1 flex flex-col items-center px-4 z-10"
         style={{ marginBottom: "60px" }}
       >
         {currentIndex < filteredClubs.length ? (
@@ -174,11 +191,9 @@ function HomeScreen({
         )}
       </div>
 
-      {/* Bottom spacer */}
-      <div className="flex-1" />
+      <div className="flex-1 z-10" />
 
-      {/* Navigation Bar */}
-      <NavigationBar className="mt-auto" />
+      <NavigationBar className="mt-auto z-20" />
     </div>
   );
 }
