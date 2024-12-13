@@ -4,6 +4,7 @@ import trashIcon from "./assets/icons8-trash-can-100.png";
 import homeIcon from "./assets/Home 2.png";
 import heartIcon from "./assets/Heart.png";
 import { useNavigate } from "react-router-dom";
+import NavigationBar from './NavigationBar';
 
 // Import all club images
 import adiLogo from './assets/ADI.png';
@@ -131,19 +132,7 @@ function LikedScreen({ likedClubs, setLikeClub }) {
       </div>
 
       {/* Fixed bottom navigation */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-4">
-        <div className="max-w-screen-xl mx-auto flex justify-around items-center">
-          <button 
-            onClick={() => navigate('/home')}
-            className="p-2"
-          >
-            <img src={homeIcon} alt="Home" className="w-6 h-6" />
-          </button>
-          <button className="p-2">
-            <img src={heartIcon} alt="Liked" className="w-6 h-6" />
-          </button>
-        </div>
-      </div>
+      <NavigationBar />
     </div>
   );
 }

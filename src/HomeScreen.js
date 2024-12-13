@@ -3,6 +3,8 @@ import ClubCard from './ClubCard';
 import heartIcon from './assets/Heart.png';
 import homeIcon from './assets/Home 2.png';
 import { useNavigate } from 'react-router-dom';
+import NavigationBar from './NavigationBar';
+
 
 function HomeScreen({ clubsData, likedClubs, setLikedClubs, viewedClubs, setViewedClubs }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -104,21 +106,7 @@ function HomeScreen({ clubsData, likedClubs, setLikedClubs, viewedClubs, setView
         )}
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-4">
-        <div className="max-w-screen-xl mx-auto flex justify-around items-center">
-          <div className="nav-item">
-            <img src={homeIcon} alt="Home Icon" className="nav-icon w-6 h-6" />
-          </div>
-          <div className="nav-item">
-            <img 
-              src={heartIcon} 
-              alt="Like Icon" 
-              className="nav-icon w-6 h-6" 
-              onClick={() => navigate("/likedclubs")} 
-            />
-          </div>
-        </div>
-      </div>
+      <NavigationBar />
     </div>
   );
 }
