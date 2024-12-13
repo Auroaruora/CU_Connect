@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import ClubCard from './ClubCard';
-import heartIcon from './assets/Heart.png'; // Navigation bar icons
+import heartIcon from './assets/Heart.png';
 import homeIcon from './assets/Home 2.png';
 import { useNavigate } from 'react-router-dom';
 
 function HomeScreen({ clubsData, likedClubs, setLikedClubs, viewedClubs, setViewedClubs }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [backendLikedClubs, setBackendLikedClubs] = useState([]); // New state for backend liked clubs
+  const [backendLikedClubs, setBackendLikedClubs] = useState([]);
 
   useEffect(() => {
-    // Fetch liked clubs from backend on component mount
     fetch("http://127.0.0.1:5000/liked-clubs")
       .then((response) => {
         if (!response.ok) {
@@ -18,14 +17,13 @@ function HomeScreen({ clubsData, likedClubs, setLikedClubs, viewedClubs, setView
         return response.json();
       })
       .then((data) => {
-        setBackendLikedClubs(data); // Update the backend liked clubs state
+        setBackendLikedClubs(data);
       })
       .catch((error) => {
         console.error("Error fetching liked clubs from backend:", error);
       });
   }, []);
 
-  // Filter clubs to exclude those in the backend liked list or already viewed
   const filteredClubs = clubsData.filter(
     (club) =>
       !viewedClubs.find((viewedClub) => viewedClub.id === club.id) &&
@@ -33,11 +31,10 @@ function HomeScreen({ clubsData, likedClubs, setLikedClubs, viewedClubs, setView
   );
 
   const handleLike = () => {
-    const currentClub = filteredClubs[currentIndex]; // Use filteredClubs
+    const currentClub = filteredClubs[currentIndex];
 
     console.log("Current club being liked:", currentClub);
 
-    // Send the liked club to the backend
     fetch("http://127.0.0.1:5000/liked-clubs", {
       method: "POST",
       headers: {
@@ -53,13 +50,12 @@ function HomeScreen({ clubsData, likedClubs, setLikedClubs, viewedClubs, setView
       })
       .then((data) => {
         console.log("Club successfully added to backend:", data.liked_clubs);
-        setBackendLikedClubs(data.liked_clubs); // Update local backend liked state
+        setBackendLikedClubs(data.liked_clubs);
       })
       .catch((error) => {
         console.error("Error adding liked club to backend:", error);
       });
 
-    // Add to frontend liked list and move to next card
     if (!likedClubs.find((club) => club.id === currentClub.id)) {
       setLikedClubs([...likedClubs, currentClub]);
     }
@@ -84,9 +80,12 @@ function HomeScreen({ clubsData, likedClubs, setLikedClubs, viewedClubs, setView
   const navigate = useNavigate();
 
   return (
-    <div className="app">
-      <h1 className="page-title">Campus Connect</h1>
-      <div className="club-card">
+    <div className="min-h-screen bg-blue-50">
+      <div className="p-6">
+        <h1 className="text-3xl font-bold text-navy-900 text-center">Campus Connect</h1>
+      </div>
+
+      <div className="px-4 pb-20">
         {currentIndex < filteredClubs.length ? (
           <ClubCard
             name={filteredClubs[currentIndex].name}
@@ -99,15 +98,25 @@ function HomeScreen({ clubsData, likedClubs, setLikedClubs, viewedClubs, setView
             onDislike={handleDislike}
           />
         ) : (
-          <p>No more clubs to display!</p>
+          <div className="bg-white rounded-3xl shadow-lg p-6 text-center">
+            <p className="text-gray-600">No more clubs to display!</p>
+          </div>
         )}
       </div>
-      <div className="bottom-navigation">
-        <div className="nav-item">
-          <img src={homeIcon} alt="Home Icon" className="nav-icon" />
-        </div>
-        <div className="nav-item">
-          <img src={heartIcon} alt="Like Icon" className="nav-icon" onClick={() => navigate("/likedclubs")} />
+
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-4">
+        <div className="max-w-screen-xl mx-auto flex justify-around items-center">
+          <div className="nav-item">
+            <img src={homeIcon} alt="Home Icon" className="nav-icon w-6 h-6" />
+          </div>
+          <div className="nav-item">
+            <img 
+              src={heartIcon} 
+              alt="Like Icon" 
+              className="nav-icon w-6 h-6" 
+              onClick={() => navigate("/likedclubs")} 
+            />
+          </div>
         </div>
       </div>
     </div>
