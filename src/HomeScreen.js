@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import ClubCard from './ClubCard';
 import { useNavigate } from 'react-router-dom';
 import NavigationBar from './NavigationBar';
-import { StackCard } from "react-stack-cards";
 
 function HomeScreen({ clubsData, likedClubs, setLikedClubs, viewedClubs, setViewedClubs }) {
   const [currentIndex, setCurrentIndex] = useState(0);
