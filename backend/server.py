@@ -3,7 +3,8 @@ import json
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": ["http://localhost:3000", "http://127.0.0.1:3000"]}})
+
 
 # Load clubs data
 with open("clubs.json", "r") as file:
@@ -39,9 +40,10 @@ def manage_liked_clubs():
 @app.route("/liked-clubs/<int:club_id>", methods=["DELETE"])
 def delete_liked_club(club_id):
     global liked_clubs
-    liked_clubs = [club for club in liked_clubs if club["id"] != club_id]
+    print(f"Deleting club with id: {club_id}")  # Debugging line
+    liked_clubs = [club for club in liked_clubs if int(club.get("id", -1)) != club_id]  # Make sure id is cast to int
+    print(f"Updated liked_clubs after deletion: {liked_clubs}")  # Log the updated list
     return jsonify({"message": "Club deleted successfully"}), 200
-
 
 @app.route("/liked-clubs/<int:club_id>", methods=["GET"])
 def get_club(club_id):

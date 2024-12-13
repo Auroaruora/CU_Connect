@@ -38,6 +38,7 @@ const imageMap = {
 function LikedScreen({ likedClubs, setLikeClub }) {
   const navigate = useNavigate();
 
+  // 🕵️‍♂️ **Fetch liked clubs from backend on load**
   useEffect(() => {
     fetch("http://127.0.0.1:5000/liked-clubs")
       .then((response) => {
@@ -48,23 +49,29 @@ function LikedScreen({ likedClubs, setLikeClub }) {
       })
       .then((data) => {
         setLikeClub(data);
+        console.log('Fetched liked clubs from backend:', data);
       })
       .catch((error) => {
         console.error("Error fetching liked clubs from backend:", error);
       });
   }, [setLikeClub]);
 
+  // 🛠️ **Delete a club from liked list**
   const onDeleteClub = (clubId) => {
+    console.log('Attempting to delete club with id:', clubId);
+    
     fetch(`http://127.0.0.1:5000/liked-clubs/${clubId}`, {
       method: "DELETE",
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Failed to delete club from backend");
+          throw new Error(`Failed to delete club with id: ${clubId}`);
         }
-        return response.json();
+        return response.json().catch(() => ({ success: true })); 
       })
       .then(() => {
+        console.log('Successfully deleted club from backend.');
+        // Update the local state to remove the deleted club
         setLikeClub((prevClubs) => prevClubs.filter((club) => club.id !== clubId));
       })
       .catch((error) => {
